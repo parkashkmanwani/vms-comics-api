@@ -24,4 +24,4 @@ use App\Tenant;
 //    });
 //});
 //
-//Route::post('tenants', 'TenantController@create');
+Route::get('test', 'TestController@list');

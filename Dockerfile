@@ -22,6 +22,8 @@ RUN apt-get update && apt-get install -y \
 RUN yes | pecl install xdebug \
     && docker-php-ext-enable xdebug
 
+COPY docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 # 2. Apache configs + document root.
 RUN echo "ServerName laravel-app.local" >> /etc/apache2/apache2.conf
 
