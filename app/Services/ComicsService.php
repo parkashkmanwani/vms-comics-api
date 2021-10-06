@@ -71,4 +71,23 @@ class ComicsService
 
     }
 
+    /**
+     * Get comics by id.
+     *
+     * @param $authorId
+     * @return mixed
+     */
+    public function getById($authorId)
+    {
+        $comics = $this->authorComicsRepository->getByAuthorId($authorId);
+
+        $comicsList = [];
+
+        foreach ($comics as $comic)
+        {
+            $comicsList[] = $this->comicsRepository->getById($comic->getAttributes()['comic_id']);
+        }
+        return $comicsList;
+    }
+
 }
