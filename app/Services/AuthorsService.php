@@ -61,4 +61,14 @@ class AuthorsService
         }
 
     }
+
+    /**
+     * Get all authors.
+     *
+     * @return String
+     */
+    public function getAll()
+    {
+        return $this->authorsRepository->getAll();
+    }
 }

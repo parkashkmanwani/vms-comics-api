@@ -39,10 +39,10 @@ class ComicsRepository
      * @param $Id
      * @return mixed
      */
-    public function getById($Id)
+    public function getById($comicId)
     {
         return $this->comics
-            ->where('id', $Id)
+            ->where('id', $comicId)
             ->get();
     }
 

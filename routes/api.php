@@ -15,13 +15,10 @@ use App\Tenant;
 |
 */
 
-//Route::group(['prefix' => 'reseller/{resellerId}/'], function () {
-//    Route::group(['middleware' => 'check.reseller'], function () {
-//
-//        Route::get('tenants', 'TenantController@list');
-//        Route::put('tenants/{tenantId}/enable', 'TenantController@enable');
-//        Route::put('tenants/{tenantId}/disable', 'TenantController@disable');
-//    });
-//});
-//
-Route::get('test', 'TestController@list');
+
+Route::group(['middleware' => 'check.token'], function () {
+    Route::get('authors', 'AuthorsController@list');
+    Route::get('comics/{authorId}', 'ComicsController@get');
+});
+
+
