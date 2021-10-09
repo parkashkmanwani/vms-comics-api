@@ -19,7 +19,7 @@ class CreateComicsTable extends Migration
             $table->string('series_name')->nullable();
             $table->string('description')->nullable();
             $table->integer('page_count')->nullable();
-            $table->integer('thumbnail_url')->nullable();
+            $table->string('thumbnail_url')->nullable();
             $table->timestamps();
         });
     }
