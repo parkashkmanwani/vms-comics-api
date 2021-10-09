@@ -2,8 +2,9 @@
 
 use Illuminate\Http\Request;
 
-use App\Tenant;
-
+use App\Http\Middleware\CheckToken;
+use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\ComicsController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,10 +16,7 @@ use App\Tenant;
 |
 */
 
-
-Route::group(['middleware' => 'check.token'], function () {
-    Route::get('authors', 'AuthorsController@list');
-    Route::get('comics/{authorId}', 'ComicsController@get');
+Route::group(['middleware' => [CheckToken::class]], function () {
+    Route::get('authors', [AuthorsController::class, 'list'])->middleware("cors");;
+    Route::get('comics/{authorId}', [ComicsController::class, 'get'])->middleware("cors");;
 });
-
-
